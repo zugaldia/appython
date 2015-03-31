@@ -5,7 +5,7 @@ This is the sample app for `appython` and probably the one you want to use to bu
 ## Features
 
 * Two different modules, based on Flask blueprints, with different scaling settings.
-* The default module includes an [Ionic](http://www.ionicframework.com) app as frontend.
+* The default module includes an [Ionic](http://ionicframework.com) app as frontend.
 * The API module has a RESTful API built with Flask-RESTful.
 * Authentication is handled by Flask-Login and a default `UserModel` is provided.
 * Automatic error management is monitored by [Sentry](https://getsentry.com).
