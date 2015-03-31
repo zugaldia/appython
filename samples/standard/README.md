@@ -49,8 +49,8 @@ Other goodies:
 
 * Run the API module with `make run-api` or `make run-api-clean` (for an empty database).
 
-Point your browser at http://localhost:8080 to see a module running
-(http://localhost:8000 for the admin interface).
+Point your browser at `http://localhost:8080` to see a module running
+(`http://localhost:8000` for the admin interface).
 
 ### Deploy
 
