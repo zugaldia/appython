@@ -2,7 +2,7 @@
 
 This folder contains two sets of scripts:
 
-1. `prepare_build.py` is used by the `Makefile` rules in the `samples` folder to increment the build number, and set the right stage, before running the app locally, or deploying it to production. You normally won't need to run this directly, as the `Makefile` will take care of it.
+* `prepare_build.py` is used by the `Makefile` rules in the `samples` folder to increment the build number, and set the right stage, before running the app locally, or deploying it to production. You normally won't need to run this directly, as the `Makefile` will take care of it.
 
 You can test it, for example, with:
 
@@ -10,7 +10,7 @@ You can test it, for example, with:
 $ python prepare_build.py --filename=prepare_build_test.txt
 ```
 
-2. `generate.py` uses the `appython` library to generate a bunch of random strings. In particular, the result of `generate_secret()` (called `key` in the output) is useful to set up the `SECRET_KEY` of the Flask app.
+* `generate.py` uses the `appython` library to generate a bunch of random strings. In particular, the result of `generate_secret()` (called `key` in the output) is useful to set up the `SECRET_KEY` of the Flask app.
 
 You can run it with:
 
