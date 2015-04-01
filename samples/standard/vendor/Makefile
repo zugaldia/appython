@@ -1,9 +1,16 @@
+# Software reqs
+PYTHON = /usr/local/bin/python
 VIRTUALENV = /usr/local/bin/virtualenv
 
+# Appython path
+APPYTHON_ROOT = ../../../../appython
+
+# Default
 DEFAULT_MODULE_REQS = reqs-default.txt
 DEFAULT_MODULE_DEPS = module_default
 DEFAULT_MODULE_PATH = ../app/module_default
 
+# API
 API_MODULE_REQS = reqs-api.txt
 API_MODULE_DEPS = module_api
 API_MODULE_PATH = ../app/module_api
@@ -22,8 +29,10 @@ clean-default:
 deps-default:
 	$(VIRTUALENV) $(DEFAULT_MODULE_DEPS)
 	$(DEFAULT_MODULE_DEPS)/bin/pip install -r $(DEFAULT_MODULE_REQS) > $(DEFAULT_MODULE_REQS).log
-	cd $(DEFAULT_MODULE_PATH); ln -s \
-		../../vendor/$(DEFAULT_MODULE_DEPS)/lib/python2.7/site-packages vendor
+	$(PYTHON) $(APPYTHON_ROOT)/scripts/ln_plus.py \
+		--from $(DEFAULT_MODULE_PATH) \
+		--to $(DEFAULT_MODULE_DEPS)/lib/python2.7/site-packages \
+		--name vendor
 
 #
 # API module
@@ -36,8 +45,10 @@ clean-api:
 deps-api:
 	$(VIRTUALENV) $(API_MODULE_DEPS)
 	$(API_MODULE_DEPS)/bin/pip install -r $(API_MODULE_REQS) > $(API_MODULE_REQS).log
-	cd $(API_MODULE_PATH); ln -s \
-		../../vendor/$(API_MODULE_DEPS)/lib/python2.7/site-packages vendor
+	$(PYTHON) $(APPYTHON_ROOT)/scripts/ln_plus.py \
+		--from $(API_MODULE_PATH) \
+		--to $(API_MODULE_DEPS)/lib/python2.7/site-packages \
+		--name vendor
 
 #
 # All

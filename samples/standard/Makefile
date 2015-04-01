@@ -5,8 +5,10 @@ CLOSURE = /usr/local/bin/closure-compiler
 PYTHON = /usr/local/bin/python
 SASS = /usr/bin/sass
 
-# Paths
-APP_SCRIPTS = ../../scripts
+# Appython path
+APPYTHON_ROOT = ../../../appython
+
+# App paths
 APP_ROOT = app
 MODULE_DEFAULT = $(APP_ROOT)/module_default
 MODULE_API = $(APP_ROOT)/module_api
@@ -21,19 +23,39 @@ all:
 # Preparations
 #
 
+clean-symlinks:
+	cd $(MODULE_DEFAULT); rm appython shared
+	cd $(MODULE_API); rm appython shared
+
+add-symlinks:
+	# Default module
+	$(PYTHON) $(APPYTHON_ROOT)/scripts/ln_plus.py \
+		--from $(MODULE_DEFAULT) --to $(APPYTHON_ROOT)/appython
+	$(PYTHON) $(APPYTHON_ROOT)/scripts/ln_plus.py \
+		--from $(MODULE_DEFAULT) --to $(APP_ROOT)/shared
+	# API module
+	$(PYTHON) $(APPYTHON_ROOT)/scripts/ln_plus.py \
+		--from $(MODULE_API) --to $(APPYTHON_ROOT)/appython
+	$(PYTHON) $(APPYTHON_ROOT)/scripts/ln_plus.py \
+		--from $(MODULE_API) --to $(APP_ROOT)/shared
+
 clean-bower:
 	rm -rf $(MODULE_DEFAULT)/static/vendor/bower_components
 
 add-bower: clean-bower
 	cd $(MODULE_DEFAULT)/static/vendor; $(BOWER) install
 
+#
+# Executed with every run/deploy
+#
+
 prepare-dev:
-	$(PYTHON) $(APP_SCRIPTS)/prepare_build.py \
+	$(PYTHON) $(APPYTHON_ROOT)/scripts/prepare_build.py \
 		--filename=$(APP_ROOT)/shared/config.py \
 		--stage=development
 
 prepare-prod: 
-	$(PYTHON) $(APP_SCRIPTS)/prepare_build.py \
+	$(PYTHON) $(APPYTHON_ROOT)/scripts/prepare_build.py \
 		--filename=$(APP_ROOT)/shared/config.py \
 		--stage=production --increase-build=True
 
