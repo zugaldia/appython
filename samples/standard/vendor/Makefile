@@ -1,9 +1,13 @@
+# Appython path
+APPYTHON_ROOT = ../../../../appython
+
+#
+# No need to change anything after this
+#
+
 # Software reqs
 PYTHON = /usr/local/bin/python
 VIRTUALENV = /usr/local/bin/virtualenv
-
-# Appython path
-APPYTHON_ROOT = ../../../../appython
 
 # Default
 DEFAULT_MODULE_REQS = reqs-default.txt

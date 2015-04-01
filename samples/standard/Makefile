@@ -1,3 +1,13 @@
+# Get one from http://console.developers.google.com
+PROJECT_ID = com-zugaldia-appython
+
+# Appython path
+APPYTHON_ROOT = ../../../appython
+
+#
+# No need to change anything after this
+#
+
 # Software reqs
 APPENGINE = /usr/local/google_appengine
 BOWER = /usr/local/bin/bower
@@ -5,16 +15,10 @@ CLOSURE = /usr/local/bin/closure-compiler
 PYTHON = /usr/local/bin/python
 SASS = /usr/bin/sass
 
-# Appython path
-APPYTHON_ROOT = ../../../appython
-
 # App paths
 APP_ROOT = app
 MODULE_DEFAULT = $(APP_ROOT)/module_default
 MODULE_API = $(APP_ROOT)/module_api
-
-# Get one from http://console.developers.google.com
-PROJECT_ID = com-zugaldia-appython
 
 all:
 	@echo See Makefile for options

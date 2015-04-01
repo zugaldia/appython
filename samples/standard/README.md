@@ -28,7 +28,7 @@ Other goodies:
 
 ### Requirements
 
-* Python.
+* Python and Virtualenv.
 * Google App Engine SDK for Python.
 * Bower.
 * Closure.
@@ -36,21 +36,23 @@ Other goodies:
 
 ### Set up
 
-This is one way of getting a project off the ground:
+This is one way to get your project off the ground:
 
 1. Add this repository to your project as a submodule: `git submodule add https://github.com/zugaldia/appython.git`
 
 2. Copy this folder (`appython/samples/standard`) into your own project and rename it to something that makes sense to you. For example: `cp -R appython/samples/standard .; mv standard appengine`
 
-3. Update the relative path to the submodule root in `Makefile` and `vendor/Makefile` (`APPYTHON_ROOT` var)
+3. Update `Makefile` to set your own `PROJECT_ID`
 
-4. Add symlinks to `appython` and the `shared` folder: `make add-symlinks`
+4. Update `Makefile` and `vendor/Makefile` to set the relative path to the submodule root (`APPYTHON_ROOT`)
 
-5. Add backend dependencies: `cd vendor; make deps`
+5. Add symlinks to `appython` and the `shared` folder: `make add-symlinks`
 
-6. Add frontend dependencies: `make add-bower`
+6. Add backend dependencies: `cd vendor; make deps`
 
-7. Edit `app/module_default/static/partials/main.html` to change the default message
+7. Add frontend dependencies: `make add-bower`
+
+8. Edit `app/module_default/static/partials/main.html` to change the default message
 
 ### Run locally
 
