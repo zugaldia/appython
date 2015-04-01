@@ -42,7 +42,7 @@ Getting your project off the ground, in 10 easy steps:
 
 2. Copy this folder (`appython/samples/standard`) into your own project and rename it to something that makes sense to you. For example: `cp -R appython/samples/standard .; mv standard appengine`.
 
-3. Rename `app/shared/config.py.TEMPLATE` to `app/shared/config.py` and update the `SUPERUSER_EMAIL` (to be able to create the first user), `SECRET_KEY` (you can use `scripts/generate.py` for that), and `SENTRY_DSN` (if you want error management controlled by Sentry). *NOTE* that `config.py` is, by default not tracked by git.
+3. Rename `app/shared/config.py.TEMPLATE` to `app/shared/config.py` and update the `SUPERUSER_EMAIL` (to be able to create the first user), `SECRET_KEY` (you can use `scripts/generate.py` for that), and `SENTRY_DSN` (if you want error management controlled by Sentry). **Note** that `config.py` is, by default, *not* tracked by git.
 
 4. Update `Makefile` to set your own `PROJECT_ID`.
 
