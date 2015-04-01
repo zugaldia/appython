@@ -36,18 +36,27 @@ Other goodies:
 
 ### Set up
 
-1. Copy this folder in your project
-2. Add this repository as a dependency, possibly with `git submodule add`
-3. Adjust the path to `scripts` in the `Makefile` (`APP_SCRIPTS` var)
-4. Create a symlink to `appython` within `app/module_default` and `app/module_api`
+This is one way of getting a project off the ground:
+
+1. Add this repository to your project as a submodule: `git submodule add https://github.com/zugaldia/appython.git`
+
+2. Copy this folder (`appython/samples/standard`) into your own project and rename it to something that makes sense to you. For example: `cp -R appython/samples/standard .; mv standard appengine`
+
+3. Update the relative path to the submodule root in `Makefile` and `vendor/Makefile` (`APPYTHON_ROOT` var)
+
+4. Add symlinks to `appython` and the `shared` folder: `make add-symlinks`
+
 5. Add backend dependencies: `cd vendor; make deps`
+
 6. Add frontend dependencies: `make add-bower`
+
+7. Edit `app/module_default/static/partials/main.html` to change the default message
 
 ### Run locally
 
-* Run the default module with `make run-default` or `make run-default-clean` (for an empty database).
+* Run the default module with `make run-default`, or `make run-default-clean` (for an empty database).
 
-* Run the API module with `make run-api` or `make run-api-clean` (for an empty database).
+* Run the API module with `make run-api`, or `make run-api-clean` (for an empty database).
 
 Point your browser at `http://localhost:8080` to see a module running
 (`http://localhost:8000` for the admin interface).
