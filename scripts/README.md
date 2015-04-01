@@ -1,6 +1,6 @@
 # Appython scripts
 
-This folder contains two sets of scripts:
+This folder contains three scripts:
 
 * `prepare_build.py` is used by the `Makefile` rules in the `samples` folder to increment the build number, and set the right stage, before running the app locally, or deploying it to production. You normally won't need to run this directly, as the `Makefile` will take care of it.
 
@@ -17,3 +17,5 @@ You can run it with:
 ```
 $ python generate.py
 ```
+
+* `ln_plus.py` helps the `Makefile` create symlinks. See the comment at the beginning of the file for more information and an example.
