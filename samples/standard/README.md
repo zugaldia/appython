@@ -34,25 +34,29 @@ Other goodies:
 * Closure.
 * SASS.
 
-### Set up
+### Set up checklist
 
-This is one way to get your project off the ground:
+Getting your project off the ground, in 10 easy steps:
 
-1. Add this repository to your project as a submodule: `git submodule add https://github.com/zugaldia/appython.git`
+1. Add this repository to your project as a submodule: `git submodule add https://github.com/zugaldia/appython.git`.
 
-2. Copy this folder (`appython/samples/standard`) into your own project and rename it to something that makes sense to you. For example: `cp -R appython/samples/standard .; mv standard appengine`
+2. Copy this folder (`appython/samples/standard`) into your own project and rename it to something that makes sense to you. For example: `cp -R appython/samples/standard .; mv standard appengine`.
 
-3. Update `Makefile` to set your own `PROJECT_ID`
+3. Rename `app/shared/config.py.TEMPLATE` to `app/shared/config.py` and update the `SUPERUSER_EMAIL` (to be able to create the first user), `SECRET_KEY` (you can use `scripts/generate.py` for that), and `SENTRY_DSN` (if you want error management controlled by Sentry). *NOTE* that `config.py` is, by default not tracked by git.
 
-4. Update `Makefile` and `vendor/Makefile` to set the relative path to the submodule root (`APPYTHON_ROOT`)
+4. Update `Makefile` to set your own `PROJECT_ID`.
 
-5. Add symlinks to `appython` and the `shared` folder: `make add-symlinks`
+5. Update `Makefile` and `vendor/Makefile` to set the relative path to the submodule root (`APPYTHON_ROOT`). For example, in the case above, you'd use `../appython` and `../../appython`, respectively.
 
-6. Add backend dependencies: `cd vendor; make deps`
+6. Add all files to GitHub (it's easier now before adding all vendor dependencies): `git add appengine`
 
-7. Add frontend dependencies: `make add-bower`
+7. Add symlinks to `appython` and the `shared` folder: `make add-symlinks`.
 
-8. Edit `app/module_default/static/partials/main.html` to change the default message
+8. Add frontend dependencies: `make add-bower`.
+
+9. Add backend dependencies: `cd vendor; make deps`.
+
+10. Customize `README.md` and edit `app/module_default/static/partials/main.html` to change the default message.
 
 ### Run locally
 
@@ -64,14 +68,6 @@ Point your browser at `http://localhost:8080` to see a module running
 (`http://localhost:8000` for the admin interface).
 
 ### Deploy
-
-First time only:
-
-1. Add your project ID to the `Makefile` (`PROJECT_ID` var)
-
-2. Rename `config.py.TEMPLATE` to `config.py` and update the `SUPERUSER_EMAIL` (to be able to create the first user), `SECRET_KEY` (you can use `scripts/generate.py` for that), and `SENTRY_DSN` (if you want error management controlled by Sentry)
-
-Later on:
 
 1. Do `make deploy-default` to deploy the default module (and the information in `cron.yaml`, `index.yaml`, and `queue.yaml`). It should look like this: http://com-zugaldia-appython.appspot.com
 
