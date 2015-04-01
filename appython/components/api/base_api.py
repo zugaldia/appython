@@ -71,8 +71,9 @@ class BaseApi(Resource):
         if not isinstance(data, dict):
             raise ApiException('BaseApi: `data` must be a dict.')
         for key in data.keys():
-            if key.startswith('status'):
-                raise ApiException('BaseApi: `status*` is a reserved key.')
+            if key in ['status_code', 'status_message']:
+                raise ApiException(
+                    'BaseApi: `status_code` and `status_message` are reserved keys.')
         self._data = data
 
     def set_code(self, code):
