@@ -91,6 +91,20 @@ deploy-default: prepare-prod minify-js minify-css
 		update .
 
 #
+# Other useful commands
+#
+
+download-app:
+	@echo "Downloading the app..."
+	rm -rf download; mkdir -p download/module_default download/module_api
+	$(PYTHON) $(APPENGINE)/appcfg.py download_app \
+		--oauth2 --application=$(PROJECT_ID) --module=default --version=v1 \
+		download/module_default
+	$(PYTHON) $(APPENGINE)/appcfg.py download_app \
+		--oauth2 --application=$(PROJECT_ID) --module=api --version=v1 \
+		download/module_api
+
+#
 # API module
 #
 
