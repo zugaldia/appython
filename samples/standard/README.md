@@ -56,7 +56,7 @@ Getting your project off the ground, in 10 easy steps:
 
 9. Add backend dependencies: `cd vendor; make deps`.
 
-10. Customize `README.md` and edit `app/module_default/static/partials/main.html` to change the default message.
+10. Customize `README.md`, edit `app/module_default/static/partials/main.html` and `app/module_default/templates/landing*html` to change the default message.
 
 ### Run locally
 
