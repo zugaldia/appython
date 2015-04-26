@@ -1,0 +1,21 @@
+version: v1
+runtime: python27
+api_version: 1
+threadsafe: true
+module: vm
+vm: true
+
+handlers:
+
+# Web app
+- url: .*
+  script: handle_main.app
+
+# SSL is required by Raven
+libraries:
+- name: webapp2
+  version: "2.5.2"
+- name: pycrypto
+  version: "2.6"
+- name: ssl
+  version: "2.7"
