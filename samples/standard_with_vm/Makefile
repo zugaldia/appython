@@ -16,17 +16,17 @@ tail-vm:
 	@echo "Getting logs from vm (VM) module..."
 	docker exec -it `docker ps --quiet` tail -f /var/log/app_engine/app.log.json
 
-run-vm: copy-vm-deps
+run-vm: prepare-dev copy-vm-deps
 	@echo "Running vm (VM) module..."
 	cd $(MODULE_VM); gcloud --log-http --project $(PROJECT_ID) \
 		preview app run vm.yaml
 
-run-vm-debug: copy-vm-deps
+run-vm-debug: prepare-dev copy-vm-deps
 	@echo "Running vm (VM) module..."
 	cd $(MODULE_VM); gcloud --log-http --verbosity debug --project $(PROJECT_ID) \
 		preview app run vm.yaml
 
-deploy-vm: copy-vm-deps
+deploy-vm: prepare-prod copy-vm-deps
 	@echo "Deploying vm (VM) module..."
 	cd $(MODULE_VM); gcloud --project $(PROJECT_ID) \
 		preview app deploy vm.yaml
