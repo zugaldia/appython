@@ -10,7 +10,7 @@ class UserModel(BaseModel):
     email = ndb.StringProperty(required=True)
 
     # For email/password users
-    password = ndb.StringProperty()
+    password_hash = ndb.StringProperty()
 
     # Used to authenticante API requests
     api_key = ndb.StringProperty()
@@ -25,7 +25,6 @@ class UserModel(BaseModel):
     def to_api(self):
         custom_fields = {
             'email': fields.String,
-            'password': IsSetField,
             'api_key': IsSetField,
             'is_admin': fields.Boolean}
         basic_fields = self.get_basic_fields()
@@ -40,7 +39,7 @@ class UserModel(BaseModel):
     def create_from_email(cls, email, password):
         email_ready = BaseManager.prepare_email(email=email)
         user_model = cls(email=email_ready)
-        user_model.password = BaseManager.get_password_hash(password=password)
+        user_model.password_hash = BaseManager.get_password_hash(password=password)
         return user_model
 
     '''
