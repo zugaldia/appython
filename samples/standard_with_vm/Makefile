@@ -18,15 +18,20 @@ tail-vm:
 
 run-vm: prepare-dev copy-vm-deps
 	@echo "Running vm (VM) module..."
-	cd $(MODULE_VM); gcloud --log-http --project $(PROJECT_ID) \
-		preview app run vm.yaml
+	cd $(MODULE_VM); gcloud preview app run vm.yaml \
+		--project $(PROJECT_ID) \
+		--log-http
 
 run-vm-debug: prepare-dev copy-vm-deps
 	@echo "Running vm (VM) module..."
-	cd $(MODULE_VM); gcloud --log-http --verbosity debug --project $(PROJECT_ID) \
-		preview app run vm.yaml
+	cd $(MODULE_VM); gcloud preview app run vm.yaml \
+		--project $(PROJECT_ID) \
+		--log-http \
+		--verbosity debug 
 
 deploy-vm: prepare-prod copy-vm-deps
 	@echo "Deploying vm (VM) module..."
-	cd $(MODULE_VM); gcloud --project $(PROJECT_ID) \
-		preview app deploy vm.yaml
+	cd $(MODULE_VM); gcloud preview app deploy vm.yaml \
+		--project $(PROJECT_ID) \
+		--verbosity info \
+		--version v1 --set-default
