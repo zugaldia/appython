@@ -17,7 +17,8 @@ class BaseApi(Resource):
         # https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS#Preflighted_requests
         self._headers = {
             'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS'}
+            'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+            'Access-Control-Allow-Headers': 'Accept, Content-Type'}
 
     '''
     HTTP methods
