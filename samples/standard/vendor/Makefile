@@ -9,6 +9,9 @@ APPYTHON_ROOT = ../../../../appython
 PYTHON = /usr/local/bin/python
 VIRTUALENV = /usr/local/bin/virtualenv
 
+# https://github.com/zugaldia/scripts
+LN_PLUS = /usr/local/bin/ln_plus.py
+
 # Default
 DEFAULT_MODULE_REQS = reqs-default.txt
 DEFAULT_MODULE_DEPS = module_default
@@ -33,7 +36,7 @@ clean-default:
 deps-default:
 	$(VIRTUALENV) $(DEFAULT_MODULE_DEPS)
 	$(DEFAULT_MODULE_DEPS)/bin/pip install -r $(DEFAULT_MODULE_REQS) > $(DEFAULT_MODULE_REQS).log
-	$(PYTHON) $(APPYTHON_ROOT)/scripts/ln_plus.py \
+	$(LN_PLUS) \
 		--from $(DEFAULT_MODULE_PATH) \
 		--to $(DEFAULT_MODULE_DEPS)/lib/python2.7/site-packages \
 		--name vendor
@@ -49,7 +52,7 @@ clean-api:
 deps-api:
 	$(VIRTUALENV) $(API_MODULE_DEPS)
 	$(API_MODULE_DEPS)/bin/pip install -r $(API_MODULE_REQS) > $(API_MODULE_REQS).log
-	$(PYTHON) $(APPYTHON_ROOT)/scripts/ln_plus.py \
+	$(LN_PLUS) \
 		--from $(API_MODULE_PATH) \
 		--to $(API_MODULE_DEPS)/lib/python2.7/site-packages \
 		--name vendor

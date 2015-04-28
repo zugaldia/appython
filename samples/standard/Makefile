@@ -18,6 +18,10 @@ CLOSURE = /usr/local/bin/closure-compiler
 PYTHON = /usr/local/bin/python
 SASS = /usr/bin/sass
 
+# https://github.com/zugaldia/scripts
+LN_PLUS = /usr/local/bin/ln_plus.py
+PREPARE_BUILD = /usr/local/bin/prepare_build.py
+
 # App paths
 APP_ROOT = app
 MODULE_DEFAULT = $(APP_ROOT)/module_default
@@ -36,15 +40,11 @@ clean-symlinks:
 
 add-symlinks:
 	# Default module
-	$(PYTHON) $(APPYTHON_ROOT)/scripts/ln_plus.py \
-		--from $(MODULE_DEFAULT) --to $(APPYTHON_ROOT)/appython
-	$(PYTHON) $(APPYTHON_ROOT)/scripts/ln_plus.py \
-		--from $(MODULE_DEFAULT) --to $(APP_ROOT)/shared
+	$(LN_PLUS) --from $(MODULE_DEFAULT) --to $(APPYTHON_ROOT)/appython
+	$(LN_PLUS) --from $(MODULE_DEFAULT) --to $(APP_ROOT)/shared
 	# API module
-	$(PYTHON) $(APPYTHON_ROOT)/scripts/ln_plus.py \
-		--from $(MODULE_API) --to $(APPYTHON_ROOT)/appython
-	$(PYTHON) $(APPYTHON_ROOT)/scripts/ln_plus.py \
-		--from $(MODULE_API) --to $(APP_ROOT)/shared
+	$(LN_PLUS) --from $(MODULE_API) --to $(APPYTHON_ROOT)/appython
+	$(LN_PLUS) --from $(MODULE_API) --to $(APP_ROOT)/shared
 
 clean-bower:
 	rm -rf $(MODULE_DEFAULT)/static/vendor/bower_components
@@ -57,13 +57,11 @@ add-bower: clean-bower
 #
 
 prepare-dev:
-	$(PYTHON) $(APPYTHON_ROOT)/scripts/prepare_build.py \
-		--filename=$(APP_ROOT)/shared/config.py \
+	$(PREPARE_BUILD) --filename=$(APP_ROOT)/shared/config.py \
 		--stage=development
 
 prepare-prod: 
-	$(PYTHON) $(APPYTHON_ROOT)/scripts/prepare_build.py \
-		--filename=$(APP_ROOT)/shared/config.py \
+	$(PREPARE_BUILD) --filename=$(APP_ROOT)/shared/config.py \
 		--stage=production --increase-build=True
 
 #
