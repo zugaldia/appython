@@ -13,8 +13,11 @@ A template for Google App Engine projects developed with Python.
 ## Requirements
 
 * Pithon and Virtualenv, to install [thirdy-party packages](https://cloud.google.com/appengine/docs/python/tools/libraries27#vendoring).
+
 * [Google Cloud SDK](https://cloud.google.com/sdk), obviously.
+
 * We use Bower, Closure, and SASS to build a sample frontend.
+
 * These [handy scripts](https://github.com/zugaldia/scripts) installed for deployment.
 
 ## Issues
