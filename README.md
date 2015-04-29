@@ -10,6 +10,13 @@ A template for Google App Engine projects developed with Python.
 
 3. Scripts to help setting up and deploying these projects. [More information](https://github.com/zugaldia/appython/blob/master/scripts/README.md).
 
+## Requirements
+
+* Pithon and Virtualenv, to install [thirdy-party packages](https://cloud.google.com/appengine/docs/python/tools/libraries27#vendoring).
+* [Google Cloud SDK](https://cloud.google.com/sdk), obviously.
+* We use Bower, Closure, and SASS to build a sample frontend.
+* These [handy scripts](https://github.com/zugaldia/scripts) installed for deployment.
+
 ## Issues
 
 Please file any issues [here](https://github.com/zugaldia/appython/issues).
