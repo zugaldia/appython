@@ -35,8 +35,8 @@ all:
 #
 
 clean-symlinks:
-	cd $(MODULE_DEFAULT); rm appython shared
-	cd $(MODULE_API); rm appython shared
+	cd $(MODULE_DEFAULT); rm -rf appython shared
+	cd $(MODULE_API); rm -rf appython shared
 
 add-symlinks:
 	# Default module

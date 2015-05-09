@@ -2,7 +2,7 @@ from appython.components.api.api_auth import api_auth
 from appython.components.api.api_exception import ApiException
 from appython.components.api.base_api import BaseApi
 from flask import request
-from shared.components.api.api_requests import setup_request
+from shared.components.api.api_requests import user_setup_request
 from shared.components.api.api_sentry import api_sentry
 from shared.components.user.user_manager import UserManager
 from shared.config import Config
@@ -28,7 +28,7 @@ class ApiUser(BaseApi):
             raise ApiException('Please run this method in secure mode (HTTPS).')
         
         # Password
-        args = setup_request.parse_args()
+        args = user_setup_request.parse_args()
         password = args.get('password') or UserManager.generate_password()
 
         # Creates the account for the superuser if it doesn't exist yet, and
