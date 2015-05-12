@@ -6,7 +6,7 @@ from code.views.web.web_landing import WebLandingView
 from flask import Blueprint
 
 blueprint_webapp = Blueprint(
-    'code', __name__, template_folder='../templates')
+    'webapp', __name__, template_folder='../templates')
 
 
 '''

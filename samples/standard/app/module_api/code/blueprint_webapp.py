@@ -5,7 +5,7 @@ See http://flask.pocoo.org/docs/blueprints/
 from code.views.web.web_landing import WebLandingView
 from flask import Blueprint
 
-blueprint_webapp = Blueprint('code', __name__)
+blueprint_webapp = Blueprint('webapp', __name__)
 
 
 '''
