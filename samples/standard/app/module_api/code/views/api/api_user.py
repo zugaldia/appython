@@ -34,7 +34,7 @@ class ApiUser(BaseApi):
         # Creates the account for the superuser if it doesn't exist yet, and
         # launches the welcome task.
         user_model = UserManager.create_from_email(
-            email=Config.SUPERUSER_EMAIL,
+            email=Config.EMAIL_SUPERUSER,
             password=password)
 
         # Add the credentials if we just created the user (this only happens

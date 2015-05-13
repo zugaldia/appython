@@ -24,7 +24,7 @@ class UserManager(BaseManager):
 
         # Is admin?
         email_ready = cls.prepare_email(email=email)
-        is_admin = (email_ready == Config.SUPERUSER_EMAIL)
+        is_admin = (email_ready == Config.EMAIL_SUPERUSER)
 
         # Create the user
         user_model = UserModel.create_from_email(email=email, password=password)

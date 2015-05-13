@@ -10,7 +10,7 @@ PROJECT_STAGE = 'development'
 class _BaseConfig():
     IS_DEVELOPMENT = (PROJECT_STAGE == 'development')
     IS_PRODUCTION = (PROJECT_STAGE == 'production')
-    SUPERUSER_EMAIL = ''
+    EMAIL_SUPERUSER = ''
     API_BASE = '/api/v1'
     FLASK = {
         'SECRET_KEY': '',
